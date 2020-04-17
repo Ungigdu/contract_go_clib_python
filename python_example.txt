@@ -10,7 +10,7 @@ lib.Update.argtypes = [GoString,GoString,GoString]
 
 
 //写入合约中的map对象
-lib.Update(GoString(b"0xEECFDD9ED52D9804AA14128E521E7F97CC1B6DBA4E5D97200D2AB1798B4508C6",66), GoString(b"test",4),GoString(b"world",5))
+lib.Update(GoString(b" 请替换成自己的私钥，0x开头 ",66), GoString(b"test",4),GoString(b"world",5))
 
 
 
