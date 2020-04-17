@@ -1,0 +1,21 @@
+//使用python3
+//加载c动态库和设置参数，返回值类型
+from ctypes import *
+lib = CDLL("demo.so")
+class GoString(Structure):
+    _fields_ = [("p", c_char_p), ("n", c_longlong)]
+lib.Query.argtypes = [GoString]
+lib.Query.restype = c_char_p
+lib.Update.argtypes = [GoString,GoString,GoString]
+
+
+//写入合约中的map对象
+lib.Update(GoString(b"0xEECFDD9ED52D9804AA14128E521E7F97CC1B6DBA4E5D97200D2AB1798B4508C6",66), GoString(b"test",4),GoString(b"world",5))
+
+
+
+//查询合约map中key="test"的内容
+lib.Query(GoString(b"test",4))
+
+//订阅事件
+lib.Watch()
